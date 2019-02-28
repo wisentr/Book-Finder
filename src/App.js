@@ -24,11 +24,7 @@ class App extends Component {
     
     axios.get(finalUrl)
       .then(response => {
-        this.setState({ bookCards: response.data.items });
-        console.log("this.state.bookCards from axios.get");
-        console.log(this.state.bookCards);
-        let booksToSetState = {...this.state.bookCards}
-        booksToSetState = this.dataRefinement(response.data.items);
+        const booksToSetState = this.dataRefinement(response.data.items);
         this.setState({bookCards: booksToSetState})
         console.log("booksToSetState: after dataRefinement call");
         console.log(this.state.bookCards);
@@ -53,10 +49,9 @@ class App extends Component {
         book.volumeInfo.imageLinks = { };
         book.volumeInfo.imageLinks.thumbnail = 'https://image.freepik.com/free-vector/books-stack-realistic_1284-4735.jpg'
         console.log(book);
-      }else{
-        console.log('All books have imageLinks property, arr not touched.. ')
       }
     });
+    console.log('All books have imageLinks property now.. ');
     return arr;
   }
 
