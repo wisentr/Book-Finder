@@ -1,4 +1,19 @@
 .App {
+  margin-top: 80px;
   text-align: center;
+  margin: 30px auto;
+  padding: 30px;
+  font-family: 'Patrick Hand SC', cursive;
+}
+
+.Container{
+  text-transform: capitalize;
+  text-align: center;
+  min-height: 350px;
+  width: 100%;
+  font-size: 17px;
+  display: grid;
+  grid-template-rows: repeat(40, 250px);
+  grid-row-gap: 50px;
 }
 

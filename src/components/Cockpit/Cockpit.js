@@ -1,19 +1,24 @@
-import React, {useEffect, useRef} from 'react';
+import React from 'react';
+import {Input, Icon} from 'semantic-ui-react';
+import classes from './Cockpit.module.css';
 
 const cockpit = (props) =>{
     // let textInput = useRef();
     // useEffect(() => textInput.current.focus(), []);
     return(
-        <div>
+        <div className={classes.Cockpit}>
             <h2>BookSearch</h2>
-            <input 
+            <Input 
+                icon={
+                    <Icon name='search' circular link 
+                    onClick={props.onButtonClick}
+                    />}
+                size='big'   
                 type='text' 
-                placeholder='Search by name or author'
+                placeholder='Search books here..'
                 value={props.inputText}
                 onChange={props.onInputChange}
             />
-            <button
-            onClick={props.onButtonClick}>Search</button>
         </div>
     );
 }
