@@ -25,15 +25,10 @@ class App extends Component {
 
   buttonClickedHandler = () => {
     this.setState({ loading: true });
-    console.log("button clicked");
-    const key = "AIzaSyDUOpEJ5dqq_-RUdLJLfTpSMZZ2Q2sJiyQ";
-    const url = "https://www.googleapis.com/books/v1/volumes?q=";
-    const finalUrl = `${
-      url + this.state.searchQuery
-    }&key=${key}&maxResults=40&orderBy=relevance`;
+    const url = `http://localhost:5001/fir-booksearch/us-central1/search?searchQuery=${this.state.searchQuery}`;
 
     axios
-      .get(finalUrl)
+      .get(url)
       .then((response) => {
         const booksToSetState = this.dataRefinement(response.data.items);
         this.setState({ bookCards: booksToSetState, loading: false });
@@ -41,16 +36,10 @@ class App extends Component {
         console.log(this.state.bookCards);
       })
       .catch((error) => {
-        if (error.response) {
-          this.setState({ error: true, errorMessage: error.response.status });
-        } else if (error.request) {
-          this.setState({ error: true, errorMessage: error.request });
-        } else {
-          console.log(
-            "Something happened in setting up the request that triggered an Error"
-          );
-          this.setState({ error: true, errorMessage: error.message });
-        }
+        console.log(
+          "Something happened in setting up the request that triggered an Error"
+        );
+        this.setState({ error: true, errorMessage: error.message });
       });
   };
 
