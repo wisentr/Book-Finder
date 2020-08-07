@@ -25,13 +25,16 @@ class App extends Component {
 
   buttonClickedHandler = () => {
     this.setState({ loading: true });
-    const url = `http://localhost:5001/fir-booksearch/us-central1/search?searchQuery=${this.state.searchQuery}`;
+    const url = `https://us-central1-fir-booksearch.cloudfunctions.net/search?searchQuery=${this.state.searchQuery}`;
 
     axios
       .get(url)
       .then((response) => {
         const booksToSetState = this.dataRefinement(response.data.items);
-        this.setState({ bookCards: booksToSetState, loading: false });
+        this.setState({
+          bookCards: booksToSetState,
+          loading: false,
+        });
         console.log("booksToSetState: after dataRefinement call");
         console.log(this.state.bookCards);
       })
@@ -39,7 +42,10 @@ class App extends Component {
         console.log(
           "Something happened in setting up the request that triggered an Error"
         );
-        this.setState({ error: true, errorMessage: error.message });
+        this.setState({
+          error: true,
+          errorMessage: error.message,
+        });
       });
   };
 

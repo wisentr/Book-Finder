@@ -17,7 +17,6 @@ exports.search = functions.https.onRequest((request, response) => {
     return axios
       .get(url)
       .then((res) => {
-        // console.log(param);
         return res.status(200).json({
           message: response.data,
         });
