@@ -6,11 +6,6 @@ import Cockpit from "./components/Cockpit/Cockpit";
 import { Icon, Grid } from "semantic-ui-react";
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    //example of writing as methods, not properties of this class. The rest is properties.
-    this.inputChangedHandler = this.inputChangedHandler.bind(this);
-  }
   state = {
     bookCards: [],
     searchQuery: "",
@@ -19,29 +14,25 @@ class App extends Component {
     loading: false,
   };
 
-  inputChangedHandler(event) {
+  inputChangedHandler = (event) => {
     this.setState({ searchQuery: event.target.value, error: false });
-  }
+  };
 
   buttonClickedHandler = () => {
     this.setState({ loading: true });
     const url = `https://us-central1-fir-booksearch.cloudfunctions.net/search?searchQuery=${this.state.searchQuery}`;
-
     axios
       .get(url)
       .then((response) => {
-        const booksToSetState = this.dataRefinement(response.data.items);
+        const booksToSetState = this.dataRefinement(
+          response.data.message.items
+        );
         this.setState({
           bookCards: booksToSetState,
           loading: false,
         });
-        console.log("booksToSetState: after dataRefinement call");
-        console.log(this.state.bookCards);
       })
       .catch((error) => {
-        console.log(
-          "Something happened in setting up the request that triggered an Error"
-        );
         this.setState({
           error: true,
           errorMessage: error.message,
@@ -50,15 +41,12 @@ class App extends Component {
   };
 
   dataRefinement = (arr) => {
-    console.log("from dataRefinement method..");
     arr.forEach((book) => {
       if (!book.volumeInfo.hasOwnProperty("imageLinks")) {
         book.volumeInfo.imageLinks = {
           thumbnail:
             "https://books.google.pl/googlebooks/images/no_cover_thumb.gif",
         };
-        //book.volumeInfo.imageLinks.thumbnail =
-        console.log(book);
       }
       if (!book.volumeInfo.hasOwnProperty("publisher")) {
         book.volumeInfo.publisher = "Unknown";
@@ -70,7 +58,6 @@ class App extends Component {
         book.volumeInfo.authors = "Unknown";
       }
     });
-    console.log("All books have imageLinks property now.. ");
     return arr;
   };
 
@@ -111,7 +98,6 @@ class App extends Component {
           onInputChange={this.inputChangedHandler}
           onButtonClick={this.buttonClickedHandler}
         />
-        {console.log(this.state.loading)}
         {icon}
         <Grid stackable columns={2} className={classes.Container}>
           {books}
