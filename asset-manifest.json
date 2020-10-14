@@ -1,13 +1,22 @@
 {
-  "main.css": "/Book-Finder/static/css/main.88f7bc42.chunk.css",
-  "main.js": "/Book-Finder/static/js/main.cf0d4b11.chunk.js",
-  "main.js.map": "/Book-Finder/static/js/main.cf0d4b11.chunk.js.map",
-  "runtime~main.js": "/Book-Finder/static/js/runtime~main.6afe0313.js",
-  "runtime~main.js.map": "/Book-Finder/static/js/runtime~main.6afe0313.js.map",
-  "static/js/2.348d2f1b.chunk.js": "/Book-Finder/static/js/2.348d2f1b.chunk.js",
-  "static/js/2.348d2f1b.chunk.js.map": "/Book-Finder/static/js/2.348d2f1b.chunk.js.map",
-  "index.html": "/Book-Finder/index.html",
-  "precache-manifest.38f816bcf20f4d92f2579be65bb025ae.js": "/Book-Finder/precache-manifest.38f816bcf20f4d92f2579be65bb025ae.js",
-  "service-worker.js": "/Book-Finder/service-worker.js",
-  "static/css/main.88f7bc42.chunk.css.map": "/Book-Finder/static/css/main.88f7bc42.chunk.css.map"
+  "files": {
+    "main.css": "/Book-Finder/static/css/main.33534ce6.chunk.css",
+    "main.js": "/Book-Finder/static/js/main.93db79c2.chunk.js",
+    "main.js.map": "/Book-Finder/static/js/main.93db79c2.chunk.js.map",
+    "runtime-main.js": "/Book-Finder/static/js/runtime-main.efb943d9.js",
+    "runtime-main.js.map": "/Book-Finder/static/js/runtime-main.efb943d9.js.map",
+    "static/js/2.46e6ecc0.chunk.js": "/Book-Finder/static/js/2.46e6ecc0.chunk.js",
+    "static/js/2.46e6ecc0.chunk.js.map": "/Book-Finder/static/js/2.46e6ecc0.chunk.js.map",
+    "index.html": "/Book-Finder/index.html",
+    "precache-manifest.214e6ec3b0ba740d6fc28dc6882ebea9.js": "/Book-Finder/precache-manifest.214e6ec3b0ba740d6fc28dc6882ebea9.js",
+    "service-worker.js": "/Book-Finder/service-worker.js",
+    "static/css/main.33534ce6.chunk.css.map": "/Book-Finder/static/css/main.33534ce6.chunk.css.map",
+    "static/js/2.46e6ecc0.chunk.js.LICENSE.txt": "/Book-Finder/static/js/2.46e6ecc0.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.efb943d9.js",
+    "static/js/2.46e6ecc0.chunk.js",
+    "static/css/main.33534ce6.chunk.css",
+    "static/js/main.93db79c2.chunk.js"
+  ]
 }
